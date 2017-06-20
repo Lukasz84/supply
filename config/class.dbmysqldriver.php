@@ -7,7 +7,7 @@ private $dbName;
 private $dbHost;
 private $numRows;
 private $handler;
-public function __construct($h="localhost",$u="root",$p="",$n="simpleloan") {
+public function __construct($h="127.0.0.1",$u="root",$p="Cdrtyj159polki!",$n="jobrouter") {
     
     $this->dbHost=$h;
     $this->User=$u;
@@ -30,17 +30,30 @@ public function Select($table, $what='*') {
      while($r=mysqli_fetch_assoc($result)){
          array_push($row, $r);
      }
-     $num=  mysqli_num_rows($result);
-     $this->numRows=$num;
-     echo $this->numRows;
+    // $num=  mysqli_num_rows($result);
+     //$this->numRows=$num;
+     //echo $this->numRows;
      return($row);
      
 }
-        //END OF Select
+ 
+ public function query($query)
+ {
+    $result=  mysqli_query($this->handler, $query)
+             or die('-- Failde to recived data result --');
+     $row=array();
+     
+     while($r=mysqli_fetch_assoc($result)){
+         array_push($row, $r);
+     }
+    // $num=  mysqli_num_rows($result);
+     //$this->numRows=$num;
+     //echo $this->numRows;
+     return($row);
+     
+ }
+
 }
-$a=new DbMySqlDriver();
-$w=$a->Select('users','login');
-foreach ($w as $value) {
-    echo $value['login'];
-}
+
+
 ?>
