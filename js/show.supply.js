@@ -41,9 +41,9 @@ $('#supply_grid').append("<tr><td>" + response[i].orderid + "</td><td data-name=
 	
 	getEmployee();
 	
-	make_editable_col('#employee_grid','td.employee_name','response.php?action=edit','Employee Name');
-make_editable_col('#employee_grid','td.employee_age','response.php?action=edit','Employee Age');
-make_editable_col('#employee_grid','td.employee_salary','response.php?action=edit','Employee Salary');
+	make_editable_col('#supply_grid','td.employee_name','response.php?action=edit','Employee Name');
+make_editable_col('#supply_grid','td.employee_age','response.php?action=edit','Employee Age');
+make_editable_col('#supply_grid','td.employee_salary','response.php?action=edit','Employee Salary');
 	
 	function ajaxAction(action) {
 		data = $("#frm_"+action).serializeArray();
@@ -55,7 +55,7 @@ make_editable_col('#employee_grid','td.employee_salary','response.php?action=edi
 		  success: function(response)  
 		  {
 			$('#'+action+'_model').modal('hide');
-			$("#employee_grid").bootgrid('reload');
+			$("#supply_grid").bootgrid('reload');
 		  }   
 		});
 	}
