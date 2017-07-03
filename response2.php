@@ -1,16 +1,12 @@
 <?php
-//echo ('Test polaczenia');
 require_once('config/class.dbmysqldriver.php');
 require_once('config/query.dbmysql.php');
-require_once('view/main.view.php');
 
 
 $DB=new dbmysqldriver();
+ $id=$_REQUEST['id'];
 
-
-$result1=$DB->query('select * from supply_desc');
-
-
+$result1=$DB->query('select * from supply_desc where idOrder='.$id);
 
 //foreach($result2 as $key)
 //{
@@ -18,7 +14,6 @@ $result1=$DB->query('select * from supply_desc');
 //}
 
 echo json_encode($result1);
-
 
 
 

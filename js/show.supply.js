@@ -1,5 +1,5 @@
 $( document ).ready(function() {
-	function getEmployee() {
+	function getOrder() {
 		$.ajax({
 		  type: "GET",  
 		  url: "response.php",
@@ -7,18 +7,48 @@ $( document ).ready(function() {
 		  success: function(response)  
 		  {
 			for (var i = 0; i < response.length; i++) {
-					//$('#employee_grid').append("<tr><td>" + response[i].orderid + "</td><td>" 
-				//	+ response[i].team + "</td><td>" 
-				//	+ response[i].finalDate + "</td><td>" + response[i].serialNumber + "</td></tr>");
+			
+$('#supply').append('<table class="table table-condensed table-hover table-striped table-bordered table-responsive " width="100%" cellspacing="5">'+
+'<thead><tr><th id="a'+response[i].id+'" class="one"></th></tr><tr><th class="two">Klient</th><th class="two">Zespół Produkcyjny</th><th class="two">Data zakończenia</th>'+
+'</tr></thead><tbody id="supply_order'+i+'"></tbody>');
+
+
+$('#a'+i).append(response[i].zsnumber);
+
+$('#supply_order'+response[i].id).append("<tr><td>" + response[i].akronim + "</td><td data-name='employee_name' class='employee_name' data-type='select'>" 
++ response[i].team + "</td><td data-name='employee_salary' class='employee_salary' data-type='text'>" 
++ response[i].finaldate 
++ "</td></tr>");
 
 
 
-$('#supply_grid').append("<tr><td>" + response[i].orderid + "</td><td data-name='employee_name' class='employee_name' data-type='select' data-pk='"+response[i].orderid+"'>" 
-+ response[i].team + "</td><td data-name='employee_salary' class='employee_salary' data-type='text' data-pk='"+response[i].orderid+"'>" 
-+ response[i].finalDate 
-+ "</td><td data-name='employee_age' class='employee_age' data-type='text' data-pk='"+response[i].orderid+"'>" + response[i].serialNumber + "</td></tr>");
 
 
+function getDevice(idOrder,row) {
+		$.ajax({
+		  type: "GET",  
+		  url: "response2.php?id="+idOrder,
+		  dataType: "json",       
+		  success: function(response2)  
+		  {
+			for (var j = 0; j < response2.length; j++) {
+				
+
+					$('#supply_device'+row).append('<tr><td>'+response2[j].devName+'</td></tr>');
+
+
+	}
+		  },
+		 error: function(jqXHR, textStatus, errorThrown) {	
+			 alert("loading whem select 2 error data " + errorThrown+textStatus+jqXHR);
+			 
+		 }
+		});
+	}
+
+getDevice(response[i].id,i);
+
+$('#supply').append('</table>'); //KONIEC TABELI FSZYSTKIE OPERACJE MUSZĄ BYĆ WYKONYWANE DO TEGO MOMENTU
 			 }
 		  },
 		 error: function(jqXHR, textStatus, errorThrown) {
@@ -39,11 +69,11 @@ $('#supply_grid').append("<tr><td>" + response[i].orderid + "</td><td data-name=
 		// $.fn.editable.defaults.mode = 'inline';
 		}
 	
-	getEmployee();
+	getOrder();
 	
-	make_editable_col('#supply_grid','td.employee_name','response.php?action=edit','Employee Name');
-make_editable_col('#supply_grid','td.employee_age','response.php?action=edit','Employee Age');
-make_editable_col('#supply_grid','td.employee_salary','response.php?action=edit','Employee Salary');
+make_editable_col('#supply','td.employee_name','response.php?action=edit','Wybierz status:');
+make_editable_col('#supply','td.employee_age','response.php?action=edit','Wybierz status:');
+make_editable_col('#supply','td.employee_salary','response.php?action=edit','Wybierz status:');
 	
 	function ajaxAction(action) {
 		data = $("#frm_"+action).serializeArray();
