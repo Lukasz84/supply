@@ -34,7 +34,7 @@ function getDevice(idOrder,row) {
 			for (var j = 0; j < response2.length; j++) {
 				
 
-					$('#supply_device'+row).append('<tr><td>'+response2[j].devName+'</td></tr>');
+				//	$('#supply_device'+row).append('<tr><td>'+response2[j].devName+'</td></tr>');
 
 
 	}
@@ -52,7 +52,7 @@ $('#supply').append('</table>'); //KONIEC TABELI FSZYSTKIE OPERACJE MUSZĄ BYĆ 
 			 }
 		  },
 		 error: function(jqXHR, textStatus, errorThrown) {
-			 alert("loading error data " + errorThrown);
+			 alert("loading error data first error data " + errorThrown);
 		 }
 		});
 	}
