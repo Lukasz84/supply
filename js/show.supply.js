@@ -18,8 +18,10 @@ $('#a'+i).append(response[i].zsnumber);
 $('#supply_order'+response[i].id).append("<tr><td>" + response[i].akronim + "</td><td data-name='employee_name' class='employee_name' data-type='select'>" 
 + response[i].team + "</td><td data-name='employee_salary' class='employee_salary' data-type='text'>" 
 + response[i].finaldate 
-+ "</td></tr>");
++ "</td></tr></table>");
 
+$('#supply').append('<table class="table table-condensed table-hover table-striped table-bordered table-responsive " width="100%" cellspacing="5">'+
+'<thead><tr><th></tr></thead><tbody id="supply_device'+i+'"></tbody>');
 
 
 
@@ -31,13 +33,25 @@ function getDevice(idOrder,row) {
 		  dataType: "json",       
 		  success: function(response2)  
 		  {
+				var cnt=0;
 			for (var j = 0; j < response2.length; j++) {
 				
 
-				//	$('#supply_device'+row).append('<tr><td>'+response2[j].devName+'</td></tr>');
+					$('#supply_device'+cnt).append('<tr><td>'+response2[j].devName+'</td></tr>');
 
+					$('#supply_device'+cnt).append('<table class="table table-condensed table-hover table-striped table-bordered table-responsive " width="100%" cellspacing="5">'+
+'<thead><tr><th>Kocioł</th><th>Naklejki</th><th>Panel Sterujacy</th><th>Przyciski Pulpitów</th><th>Typ Konstrukcji</th><th>Zasilanie</th>'+
+'<th>AntiVandal</th><th>Chemia Na Pompkach</th><th>Ciepla Cyrkulacja</th><th>Czujnik Cisnienia</th><th></th><th>Data zakończenia</th><th>Czujniki Poziomu Chemii</th>'+
+'<th>Dwa Obiegi Ogrzewania</th><th>Elektroniczne Pływaki Wody Z Proszkiem</th><th>Falowniki</th><th>Filtr Samoczyszczacy</th><th>Hydrofor</th>'+
+'<th>Inkasacja</th><th>Kontener Socjalny</th><th>Kontener Techniczny</th><th>Ogrzewanie Kontenera</th><th>Opcja Hydrauliki</th><th>Przewody Grzejne</th>'+
+'<th>Rezygnacja Z Proszuku</th><th>SmartHeating</th><th>NSPremium</th><th>Wybor Technologii</th><th>Zasysanie Monet</th><th>Czytnik Banknotów</th>'+
+'<th>Czytnik Kart Lojalnościowych</th><th></th><th>Czytnik Kart Płatniczych</th><th>Oprysk Felg</th><th>Piana</th><th>Szczotka</th><th>Turbo Piana</th>'+
+'</tr></thead><tbody id="supply_deviceDetails'+cnt+'"></tbody>');
+	$('#supply_deviceDetails'+cnt).append('<tr><td>'+response2[j].devName+'</td></tr>');
 
 	}
+
+	cnt++;
 		  },
 		 error: function(jqXHR, textStatus, errorThrown) {	
 			 alert("loading whem select 2 error data " + errorThrown+textStatus+jqXHR);

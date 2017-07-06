@@ -10,8 +10,8 @@ class supply
     }
     public function odd()
         {
-            $DB=new dbmysqldriver();
-      $result2=$DB->query('select * from supply_order');
+        $DB=new dbmysqldriver();
+        $result2=$DB->query('select * from supply_order');
         $cnt=$DB->numrows($result2);
         $view=new mainview();
         for($i=0;$i<=$cnt;$i++)
