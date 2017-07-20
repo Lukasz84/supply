@@ -15,7 +15,7 @@ $('#supply').append('<table class="table table-condensed table-hover table-strip
 
 $('#a'+i).append(response[i].zsnumber);
 
-$('#supply_order'+response[i].id).append("<tr><td>" + response[i].akronim + "</td><td data-name='employee_name' class='employee_name' data-type='select'>" 
+$('#supply_order'+response[i].id).append("<tr><td>" + response[i].akronim + "</td><td data-name='employee_name' class='employee_name' data-type='select' id='status'>" 
 + response[i].team + "</td><td data-name='employee_salary' class='employee_salary' data-type='text'>" 
 + response[i].finaldate 
 + "</td></tr></table>");
@@ -47,7 +47,7 @@ function getDevice(idOrder,row) {
 '<th>Rezygnacja Z Proszuku</th><th>SmartHeating</th><th>NSPremium</th><th>Wybor Technologii</th><th>Zasysanie Monet</th><th>Czytnik Banknotów</th>'+
 '<th>Czytnik Kart Lojalnościowych</th><th></th><th>Czytnik Kart Płatniczych</th><th>Oprysk Felg</th><th>Piana</th><th>Szczotka</th><th>Turbo Piana</th>'+
 '</tr></thead><tbody id="supply_deviceDetails'+cnt+'"></tbody>');
-	$('#supply_deviceDetails'+cnt).append('<tr><td>'+response2[j].devName+'</td></tr>');
+$('#supply_deviceDetails'+cnt).append('<tr><td>'+response2[j].devName+'</td></tr>');
 
 	}
 
@@ -78,17 +78,23 @@ $('#supply').append('</table>'); //KONIEC TABELI FSZYSTKIE OPERACJE MUSZĄ BYĆ 
 			url: ajax_url,
 			title: title,
 			type: "POST",
-			dataType: 'json'
+			 source: [
+              {value: 1, text: 'Zamówiono'},
+              {value: 2, text: 'Zarezerwowano'},
+              {value: 3, text: 'Do zamówienia'},
+           ]
+			
 		  });
 		// $.fn.editable.defaults.mode = 'inline';
 		}
-	
+
 	getOrder();
 	
 make_editable_col('#supply','td.employee_name','response.php?action=edit','Wybierz status:');
 make_editable_col('#supply','td.employee_age','response.php?action=edit','Wybierz status:');
 make_editable_col('#supply','td.employee_salary','response.php?action=edit','Wybierz status:');
-	
+
+
 	function ajaxAction(action) {
 		data = $("#frm_"+action).serializeArray();
 		$.ajax({
@@ -99,7 +105,7 @@ make_editable_col('#supply','td.employee_salary','response.php?action=edit','Wyb
 		  success: function(response)  
 		  {
 			$('#'+action+'_model').modal('hide');
-			$("#supply_grid").bootgrid('reload');
+			//$("#supply_grid").bootgrid('reload');
 		  }   
 		});
 	}

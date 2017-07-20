@@ -356,7 +356,7 @@ if(cur.hasClass('dob'))
 
 		if(data2)
 		{
-				$('#info2').html('');
+			$('#info2').html('');
 			$('#first').hide('slow');
 			$('#second').show('slow');
 		}
@@ -467,10 +467,10 @@ $('#next4').click(function()
 		
 //OBSŁUGA KLAWISZY COFANIA!!!!!!
 
-$('#back').click(function()
-{
-	$('#first').hide('slow'); $('#calc').show('slow');
-	});
+	$('#back').click(function()
+	{
+		$('#first').hide('slow'); $('#calc').show('slow');
+		});
 	
 $('#back1').click(function()
 {
