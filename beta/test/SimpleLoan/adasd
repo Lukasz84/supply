@@ -1,0 +1,66 @@
+[33mcommit 356b28f14ef5ec21e64834edfc67bd107566f34b[m
+Merge: 9ef4ac7 6ae3fc0
+Author: Lukasz Filipiak <lukasz.filipiak@yahoo.com>
+Date:   Thu Oct 8 17:10:10 2015 +0200
+
+    Merge branch 'master' of https://github.com/Lukasz84/SimpleLoan
+
+[33mcommit 6ae3fc05b7b76306a8c52590066164d83e68d37b[m
+Author: Lukasz Stanislaw Filipiak <lukasz_filipiak@wp.pl>
+Date:   Thu Oct 8 12:40:07 2015 +0200
+
+    Test 10/08
+
+[33mcommit 9ef4ac7f4eec68040396348e3108631339c3fa13[m
+Author: Lukasz Filipiak <lukasz.filipiak@yahoo.com>
+Date:   Wed Sep 2 12:25:38 2015 +0100
+
+    OK
+
+[33mcommit 0b5e44f1a1f9c0b7e31de1a199353ad567293e46[m
+Author: Lukasz Filipiak <lukasz.filipiak@yahoo.com>
+Date:   Thu Jul 16 10:33:25 2015 +0100
+
+    Test
+
+[33mcommit 7798b73d6fbab3e069402058eb1acf028dfdb8a4[m
+Author: Lukasz Filipiak <lukasz.filipiak@yahoo.com>
+Date:   Wed Jul 15 18:05:08 2015 +0100
+
+    Add validiate.php script
+
+[33mcommit 5e141f7da7f07a217fd26cecbc7f0fdfcd0170e8[m
+Author: Lukasz Filipiak <lukasz.filipiak@yahoo.com>
+Date:   Sat Jul 11 23:04:08 2015 +0100
+
+    Changed width on input in form, form left padding has being changed too
+
+[33mcommit cd6370b06ace7d5e66857eb4291391089b548d89[m
+Author: Lukasz Filipiak <lukasz.filipiak@yahoo.com>
+Date:   Sat Jul 11 22:02:12 2015 +0100
+
+    Add jquery validation script on Index.php
+
+[33mcommit 610ad1dd069b63b72042e609ba76b5528481cf89[m
+Author: Lukasz Filipiak <lukasz.filipiak@yahoo.com>
+Date:   Thu Jul 9 14:56:18 2015 +0100
+
+    Background changed, CSS code modified
+
+[33mcommit 1e06d46b2fde714acb43b8a496da5705f77b5021[m
+Author: Lukasz Filipiak <lukasz.filipiak@yahoo.com>
+Date:   Thu Jul 9 01:18:04 2015 +0100
+
+    End of class.dbmysqldriver
+
+[33mcommit b2d2a2243ad3857a366a75c292c309d2939f1cf1[m
+Author: Lukasz Filipiak <lukasz.filipiak@yahoo.com>
+Date:   Wed Jul 8 21:04:48 2015 +0100
+
+    Changing of MySql Driver Class
+
+[33mcommit 601c616c1e5874745c8d4e1d27fdf0998e041a45[m
+Author: Lukasz Filipiak <lukasz.filipiak@yahoo.com>
+Date:   Mon Jul 6 17:28:33 2015 +0100
+
+    Start

@@ -1,0 +1,293 @@
+
+
+
+<!DOCTYPE html>
+<html ><head>
+    <meta charset="UTF-8">
+
+<script src="js/jquery-2.1.4.js" type="text/javascript"></script>
+<script src="js/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
+<link rel="stylesheet" href="js/jquery-ui-1.11.4.custom/jquery-ui.css">
+<link rel="stylesheet" href="js/jquery-ui-1.11.4.custom/jquery-ui.theme.css">
+<script src="js/valform.js" type="text/javascript"></script>
+  
+<title>SimpleLoan</title>  
+<style>
+
+@import url(http://fonts.googleapis.com/css?family=Exo:100,200,400);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400,300);
+
+body{
+	margin: 0;
+	padding: 0;
+	background: #fff;
+	color: #fff;
+	font-family: Arial;
+	font-size: 12px;
+}
+
+.body{
+	position: absolute;
+	top: -20px;
+	left: -20px;
+	right: -40px;
+	bottom: -40px;
+	width: auto;
+	height: auto;
+	background-image:url('graphics/rbs.jpg');
+	
+	background-size:contain;
+	z-index: 0;
+}
+
+.grad{
+	position: absolute;
+	top: -20px;
+	left: -20px;
+	right: -40px;
+	bottom: -40px;
+	width: auto;
+	height: auto;
+	background-repeat:repeat-y;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65))); /* Chrome,Safari4+ */
+	z-index: 1;
+	opacity: 0.7;
+}
+
+.box{
+
+    box-sizing: border-box;
+    width: 50%;
+    float: left;
+} 
+
+.header{
+	position: absolute;
+	top: calc(10% - 35px);
+	left: calc(30% - 255px);
+	z-index: 2;
+}
+
+.header div{
+	float: left;
+	color: #fff;
+	font-family: 'Exo', sans-serif;
+	font-size: 35px;
+	font-weight:bold;
+}
+
+.header div span{
+	color: #5379fa !important;
+}
+
+.login{
+	position: absolute;
+	top: calc(30% - 75px);
+	left: calc(18% - 50px);
+	height: 850px;
+	width: 650px;
+	padding: 50px;
+	z-index: 2;
+}
+
+.login input[type=text]{
+	width: 450px;
+	height: 30px;
+	background: transparent;
+	border: 1px solid rgba(255,255,255,0.6);
+	border-radius: 2px;
+	color: #fff;
+	font-family: 'Exo', sans-serif;
+	font-size: 18px;
+	font-weight: 400px;
+	padding: 4px;
+}
+
+.login select{
+	width: 450px;
+	height: 50px;
+	background: transparent;
+	border: 1px solid rgba(255,255,255,0.6);
+	border-radius: 2px;
+	color:#0C0;
+	font-family: 'Exo', sans-serif;
+	font-size: 18px;
+	font-weight: 400px;
+	padding: 4px;
+	margin-top:25px;
+}
+.login input[type=password]{
+	width: 250px;
+	height: 50px;
+	background: transparent;
+	border: 1px solid rgba(255,255,255,0.6);
+	border-radius: 2px;
+	color: #fff;
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 4px;
+	margin-top: 10px;
+}
+
+.login input[type=button]{
+	width: 250px;
+	height: 35px;
+	background: #fff;
+	border: 1px solid #fff;
+	cursor: pointer;
+	border-radius: 2px;
+	color: #a18d6c;
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 6px;
+	margin-top: 10px;
+}
+
+.login input[type=button]:hover{
+	opacity: 0.8;
+        background-color: greenyellow;
+	
+}
+
+.login input[type=button]:active{
+	opacity: 0.6;
+}
+
+.login input[type=text]:focus{
+	outline: none;
+	border: 1px solid rgba(255,255,255,0.9);
+}
+.login select:focus{
+	outline: none;
+	border: 1px solid rgba(255,255,255,0.9);
+}
+
+.login input[type=password]:focus{
+	outline: none;
+	border: 1px solid rgba(255,255,255,0.9);
+}
+
+.login input[type=submit]:focus{
+	outline: none;
+}
+
+::-webkit-input-placeholder{
+   color: rgba(255,255,255,0.6);
+}
+
+::-moz-input-placeholder{
+   color: rgba(255,255,255,0.6);
+}
+    </style>
+ <script src="js/prefixfree.min.js"></script>
+ 
+    
+  </head>
+
+  <body>
+
+    <div class="body"></div>
+		<div class="grad"></div>
+		<div class="header">
+			<div>Simple as We can...<span> for You Loan</span><br>
+          </div>
+		</div>
+		<br>
+        <form>
+		<div class="login" style="margin-top:-60px;">
+        
+           <section id="calc">
+          <p>
+  <label for="amount" style="font-size:16px; font-weight:bold;">Price range (£):</label>
+  <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold; font-size:36px;">
+</p>
+ <table><tr>fsfdffsd</tr><td>ewffffds</td></tr></table>
+<div id="slider"></div>
+					<select id="time">
+                    <option>14 day's</option>
+                    <option>30 day's</option>
+                    <option>2 month's</option>
+                    <option>3 month's</option>
+                    <option>6 month's</option>
+                    <option>one year</option>
+                    </select>
+                       
+                  	<h1 id="result" style="border:0; color:#f6931f; font-weight:bold; font-size:24px;"></h1>
+                     <input type="button" value="Result" name="oblicz" id="oblicz"><br>
+                     <input type="button" value="Next" name="submit" id="next1">
+                    <span id="info"></span>
+                    </section>
+        
+        <section id="first" hidden="true">
+        			<span>First</span> Step <span>fill up simple form</span>:
+                    <h3>First name:</h3>   <input type="text" class="require" placeholder="firstname" name="name" id="name"> 
+                    
+                    <h3>Last name:</h3><input type="text"  class="require"  placeholder="lastname" name="lname" id="lname">
+                    <h3>City:</h3>   <input type="text" placeholder="city" name="city" class="require">
+                    <h3>Address:</h3>   <input type="text" placeholder="address" name="adr" class="require">
+                    <h3>Post code:</h3>   <input type="text" placeholder="postcode" name="code" class="post" maxlength="5">
+                    <input type="button" value="Next" name="submit" id="next2">
+                    <input type="button" value="Back" name="submit" id="back">
+                    <span id="info2"></span>
+                    </section>
+             
+        <section id="second" hidden="true">
+        			<span>Second</span> Step <span>fill up simple form</span>
+                    <h3>E-mail address:</h3>   <input type="text" class="address" placeholder="email address" name="address" id="address">
+                    <h3>Confirm E-mail address:</h3>   <input type="text" class="addressc" placeholder="confirm email address" name="address" 
+                    id="addressc">
+                    <h3>NINo.:</h3><input type="text" class="nino" placeholder="NINo." name="nino" id="nino" maxlength="12">
+                  	<h3>Date of Birth:</h3><input type="text" class="dob" placeholder="day" maxlength="2" style="width:60px;"> / 
+                    <input type="text" class="dob" placeholder="month" maxlength="2" style="width:60px;"> / 
+                    <input type="text" class="dob" placeholder="year" maxlength="4" style="width:120px;"> <br>
+                    <input type="button" value="Next" name="submit" id="next3">
+                    <input type="button" value="Back" name="submit" id="back1">
+                    <span id="info3"></span>
+                    </section>
+		
+         		<section id="third" hidden="true">
+        			<h1><span>Second</span> Step <span>fill up simple form</span>:
+                   Work status (that I can proof):</h1>
+                    <select id="status">
+                    <option>Unemployed</option>
+                    <option>Part-Employed</option>
+                    <option>Full-Employed</option>
+                    <option>Self-Employed</option>
+                    </select><br><br>
+                    <h3>Monthly incoming (with social benefits):</h3>   <input name="incoming" type="text" class="incoming"				                    id="incoming" placeholder="monthly incoming"><br><br><br>
+				 <input type="checkbox" id="reg" name="reg"><strong>I ACCEPT:</strong><strong> 
+                 <p>Term's and condition using service of Royal Bank of Scotland. 
+                 For customers with a Revolve, Student, Graduate, Basic, Select, Reward, Select Silver, 
+                 Reward Silver, Select Platinum, Reward Platinum, Black Account or Reward Black account, the terms below apply to your account:</p>
+                 </strong><br>
+                  <input type="checkbox" id="reg2" name="reg"><strong>I ACCEPT:</strong><strong> 
+                 <p>Term's and condition using service of Royal Bank of Scotland. 
+                 For customers with a Revolve, Student, Graduate, Basic, Select, Reward, Select Silver, 
+                 Reward Silver, Select Platinum, Reward Platinum, Black Account or Reward Black account, the terms below apply to your account:
+                 lack Account or Reward Black account, the terms below apply to your account, lack Account or Reward Black account, the terms below apply 			to your account
+                 </p></strong><br><br><input type="button" value="Next" name="submit" id="next4">
+                    <input type="button" value="Back" name="submit" id="back2">
+                       <span id="info4"></span>
+                    </section>
+                                  
+                 <section id="last" hidden="true">
+                 <h1><span>Second</span> Step <span>fill up simple form</span>:
+                 <br>
+                 <h1>Confirm Your data:</h1>
+                 <h1>Loan info:</h1>
+                 <hr>
+                 <div class="box"><h3>Loan amount:</h3> <span id="res1"></span></div> 
+                 <div class="box"><h3>Time for loan payback:</h3> <span id="res2" style="color:orange;"></span></div>
+                 <input type="button" value="Change" name="submit" id="back_loan">
+                 <input type="button" value="Send" name="submit" id="send_val">
+                 </section>  
+		
+       
+ 		</div>	       
+     
+        </form>
+            
+        </body>
+</html>
