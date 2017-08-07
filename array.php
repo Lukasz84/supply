@@ -1,43 +1,96 @@
 <?php
 require_once('config/class.dbmysqldriver.php');
-$DB=new dbmysqldriver();
+//$DB=new DbMySqlDriver();
+  $db_name="jobrouter";
+	$db_login="root";
+	$db_password="Cdrtyj159polki!";
+	$db_host="127.0.0.1";
+	$JRDB = mysqli_connect($db_host, $db_login, $db_password, $db_name);
+	
 
-$test=array("0" => array("zs" => 'ZS-4544554', "team" => "Zespol 4", "akronim" => "Orlen", "produkt" => "dassdadsa", 
-"produkt"=>array("produkt" => "CWT45", "numer" => "14789"),"produkt1"=>array("produkt1" => "CWT45", "numer" => "14789")));
+//$test=array("0" => array("zs" => 'ZS-4544554', "team" => "Zespol 4", "akronim" => "Orlen", "produkt" => "dassdadsa", 
+//"produkt"=>array("produkt" => "CWT45", "numer" => "14789"),"produkt1"=>array("produkt1" => "CWT45", "numer" => "14789")));
 
 //foreach($result2 as $key)
 //{
   //  echo $key['orderid'];ZS-31/2015/8
 //}
-$result2=$DB->query("select distinct orderId, clientId, finalDate, country, team from (SELECT b.processid, b.orderId, b.clientId, b.saleType, b.responsibleUser, b.finalDate, b.country, hi.status, b.finishDate,b.team,
-
-(CASE WHEN
-GROUP_CONCAT(h.status SEPARATOR ', ') like '%0%' THEN  '1otw'
-WHEN GROUP_CONCAT(h.status SEPARATOR ', ') like '%6%' and b.step not in (36) THEN '3anul'
-ELSE '2zam'
-END) as stat_kroki,
-
-p.SerialNumber, po.orderDescription as desc4, po.orderDescProd, po.orderDescLogistic, po.orderDescService, po.orderDescTech, p.productid, p.prodOrderNumber, p.ID as IDProduktu,
-
-IFNULL((SELECT (CASE WHEN
-GROUP_CONCAT(status SEPARATOR ', ') like '%0%' THEN  '1otw'
-WHEN GROUP_CONCAT(status SEPARATOR ', ') like '%6%' and b.step not in (36) THEN '3anul'
-ELSE '2zam'
-END)
- FROM jrincidents where processid = p.prodOrderNumber),'2zam') as  prodstatus
-
-FROM bkf_cwdelivery b
-LEFT JOIN `bkf_productsorders` as po ON po.processid = b.processid
-LEFT JOIN `bkf_product` as p ON po.IDprod = p.ID
-
-join jrincidents as h on b.step_id=h.process_step_id
-join jrincident as hi on h.processid = hi.processid
-where h.status <>4 and po.detachDate is NULL
-and b.step <> 203  and b.step <> 100 and b.step <> 23 and b.step <> 5 and b.step <> 7
-group by b.processid, p.serialNumber
-order by stat_kroki, b.orderId, b.finalDate, p.productid ASC) y where orderId not like '%-->%' and team<>'' order by finalDate desc;");
-
-echo json_encode($test);
 
 
-?>
+$info = mysqli_query($JRDB, $result2);
+
+$cnt=mysqli_num_rows($info);
+
+$dev_arr=array();
+
+$details_arr=array();
+
+
+
+for($i=0;$i<$cnt;$i++)
+{
+ $info_arr[$i]=mysqli_fetch_assoc($info); 
+}
+
+
+/*foreach($info_arr as $key => $value)
+{
+  $qrt='insert into supply_order values(NULL,"'.$value['processid'].'","'.$value['orderId'].'","'.$value['finalDate'].'",
+  "'.$value['clientId'].'","'.$value['country'].'","'.$value['team'].'",0)';
+$info=mysqli_query($JRDB, $qrt);
+
+}*/
+
+
+
+foreach($info_arr as $key => $value)
+ {
+     $qry=str_replace(zmienna,$value['orderId'],$device);
+          $infodev = mysqli_query($JRDB, $qry);
+           $cnt=mysqli_num_rows($infodev);
+      for($i=0;$i<$cnt;$i++)
+       {
+          array_push($dev_arr,mysqli_fetch_assoc($infodev));         
+       }
+}
+
+foreach($dev_arr as $key => $value)
+{
+  $qrt='insert into supply_desc values("'.$value['serialNumber'].'","'.$value['processid'].'","'.$value['IDproduktu'].'",
+  "'.$value['productId'].'")';
+$info=mysqli_query($JRDB, $qrt);
+
+}
+
+/*foreach($dev_arr as $key => $value)
+ {
+          
+          $qry=str_replace(zamexpand,$value['IDproduktu'],$details);
+          $infodev = mysqli_query($JRDB, $qry);
+          $cnt=mysqli_num_rows($infodev);
+              for($i=0;$i<$cnt;$i++)
+                {
+                  array_push($details_arr,mysqli_fetch_assoc($infodev));         
+                }
+}*/
+//foreach($dev_arr as $key => $value)
+  //foreach($value as $key2 => $value2)
+//{
+
+// $value2;
+//}
+
+//print_r($dev_arr);
+//print_r($info_arr);
+//print_r($details_arr);
+//while($row=mysqli_fetch_assoc($hardware))
+//{
+  //for($i=0;$i<$cnt;$i++)
+    //{
+      //for($j=0;$j<$cnt;$j++)
+      //{
+        //$arr[$i][$j]=$row['finalDate'];
+        //$arr[$i][$j]=$row['orderId'];
+      //}
+    //}
+//}
